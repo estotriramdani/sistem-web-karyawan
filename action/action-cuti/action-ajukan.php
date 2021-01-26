@@ -10,6 +10,7 @@ $status = 0;
 
 if ($jumlah <= $jumlahMulai){
   echo "<script>alert('Tanggal berakhir harus lebih besar dari tanggal mulai'); window.location = '../../ajuan-cuti.php';</script>";
+  exit;
 }
 $jumlahHariCuti = $jumlah - $jumlahMulai;
 

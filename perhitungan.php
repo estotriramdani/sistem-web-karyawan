@@ -15,7 +15,7 @@ foreach ($gaji as $g) {
 $cuti = mysqli_query($conn,"SELECT * from cuti");
 $jumlahHariTidakMasuk = 0;
 while($d = mysqli_fetch_array($cuti)) {
-  if ($email == $d['email'])
+  if ($email == $d['email'] && $d['status'] == 2)
   $jumlahHariTidakMasuk++;
 }
 // echo "Jumlah cuti ".$jumlahHariTidakMasuk. "<br>";
@@ -43,7 +43,9 @@ while($d = mysqli_fetch_array($lembur)) {
 // echo "Jumlah jam lembur ".$jumlahJamLembur. " jam <br>";
 
 
-$gaji_pokok = ($jumlahHariMasuk - $jumlahHariTidakMasuk) * $jamKerja * $gajiHarian;
+// $gaji_pokok = $jumlahHariMasuk * $gajiHarian;
+
+$gaji_pokok = (21 - $jumlahHariTidakMasuk) * $gajiHarian; // ini test
 // echo $gaji_pokok. "<br>";
 
 $uangLembur = $uangLembur * $jumlahJamLembur;
