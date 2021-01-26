@@ -18,7 +18,7 @@ function registrasi($data){
   global $conn;
 
   $email = strtolower($data["email"]);
-  $nama = strtolower($data["nama"]);
+  $nama = $data["nama"];
   $jenis_kelamin = $data["jenis_kelamin"];
   $role = intval($data["role"]);
   $rekening_gaji = strtolower($data["rekening_gaji"]);
