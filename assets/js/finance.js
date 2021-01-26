@@ -5,20 +5,14 @@ const actionLembur = document.querySelector("#action-lembur");
 // gaji harian
 actionHarian.addEventListener("click", function () {
   const inputHarian = document.querySelector(".input-harian");
-  fetch(
-    "http://localhost/sistem-web-karyawan/action/action-finance/update-gaji.php?value=" +
-      inputHarian.value
-  );
+  fetch("action/action-finance/update-gaji.php?value=" + inputHarian.value);
   alert("Gaji harian berhasil diset");
 });
 
 // uang lembur
 actionLembur.addEventListener("click", function () {
   const inputLembur = document.querySelector(".input-lembur");
-  fetch(
-    "http://localhost/sistem-web-karyawan/action/action-finance/update-lembur.php?value=" +
-      inputLembur.value
-  );
+  fetch("action/action-finance/update-lembur.php?value=" + inputLembur.value);
   alert("Uang lembur per jam berhasil diset");
 });
 
@@ -26,8 +20,7 @@ actionLembur.addEventListener("click", function () {
 actionCuti.addEventListener("click", function () {
   const inputCuti = document.querySelector(".input-cuti");
   fetch(
-    "http://localhost/sistem-web-karyawan/action/action-finance/update-potongan-cuti.php?value=" +
-      inputCuti.value
+    "action/action-finance/update-potongan-cuti.php?value=" + inputCuti.value
   );
   alert("Uang potongan cuti per hari berhasil diset");
 });

@@ -6,12 +6,13 @@ $tgl_terakhir = date('Y-m-t', strtotime($hari_ini));
 $tgl_awal=$tgl_pertama;
 //Tgl Akhir
 
+
 $tgl_akhir = substr($tgl_terakhir, 8);
 
 // Ubah tgl ke format time
 $awal=strtotime($tgl_awal);
 
-$akhir=strtotime($tgl_akhir);
+$akhir=strtotime(date('Y-m-t', strtotime($hari_ini)));
  //set awal jumlah hari kerja                               
  $hari_kerja= 0;
   //looping dari tgl awal sampai tgl akhir dengan increment 1 hari (60 * 60 * 24 second)

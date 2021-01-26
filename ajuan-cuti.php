@@ -3,6 +3,7 @@
   session_start();
 
   include_once './functions.php';
+  include_once './variables.php';
 
   if (!isset($_SESSION['login'])) {
     echo "<script>alert('Silakan login terlebih dahulu'); window.location = 'pages/auth/login.php';</script>";
@@ -31,8 +32,8 @@
           <th scope="col">id</th>
           <th scope="col">Nama</th>
           <th scope="col">Email</th>
-          <th scope="col">Jumlah Hari Cuti</th>
-          <th scope="col">Aksi</th>
+          <th scope="col">Jumlah</th>
+          <th scope="col">Aksi / Status</th>
         </tr>
       </thead>
       <tbody>
@@ -44,10 +45,16 @@
           <td><?= $d['id']; ?></td>
           <td><?= $d['nama']; ?></td>
           <td><?= $d['email']; ?></td>
-          <td><?= $d['jumlah']; ?></td>
+          <td><?= $d['jumlah']; ?> hari</td>
           <td>
-            <button class="btn btn-success" id="setujui">Setujui</button>
-            <button class="btn btn-danger" id="tolak">Tolak</button>
+            <?php if ($d['status'] == 0) { ?>
+              <a href="action/action-cuti/action-setujui.php?id=<?= $d['id']; ?>" class="btn btn-success" id="setujui">Setujui</a>
+              <a href="action/action-cuti/action-tolak.php?id=<?= $d['id']; ?>" class="btn btn-danger" id="tolak">Tolak</a>
+            <?php } else if ($d['status'] == 1) { ?>
+              <button class="btn btn-danger">Ditolak</button>
+            <?php } else if ($d['status'] == 2) { ?>
+              <button class="btn btn-success">Disetujui</button>
+            <?php }  ?>
           </td>
         </tr>
         <?php } ?>

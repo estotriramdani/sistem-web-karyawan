@@ -47,7 +47,7 @@ require '../../functions.php';
             <div class="form-group row">
               <label for="nama" class="col-sm-3 col-form-label">Nama</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" name="nama" id="nama" />
+                <input type="text" class="form-control" name="nama" id="nama" required/>
               </div>
             </div>
             <div class="form-group row">
@@ -60,6 +60,7 @@ require '../../functions.php';
                   class="form-control"
                   name="password"
                   id="password"
+                  required
                 />
               </div>
             </div>
@@ -101,9 +102,9 @@ require '../../functions.php';
                   id="role"
                   class="form-control"
                 >
+                <option value="3">Karyawan</option>
                   <option value="1">Pimpinan</option>
                   <option value="2">Admin</option>
-                  <option value="3">Karyawan</option>
                 </select>
               </div>
             </div>
