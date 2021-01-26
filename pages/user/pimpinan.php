@@ -4,7 +4,7 @@
 <div class="container">
     <h1 class="mt-4 text-primary">Halaman Pimpinan</h1>
     <div class="row mt-4 bg-white p-3 shadow-sm hoverable justify-content-center" style="transition: .3s; width: 96.5%">
-      <div class="col-sm-4 mb-3">
+      <div class="col-sm-6 mb-3">
         <h5>Tentukan Gaji Harian</h5>
         <div class="row mt-4">
           <div class="col-sm-9 mb-3">
@@ -22,7 +22,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-4 mb-3">
+      <div class="col-sm-6 mb-3">
         <h5>Tentukan Uang Lembur</h5>
         <div class="row mt-4">
           <div class="col-sm-9 mb-3">
@@ -35,24 +35,6 @@
           </div>
           <div class="col-sm-3">
             <button class="btn btn-primary w-100" id="action-lembur">
-              Set
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4 mb-3">
-        <h5>Tentukan Uang Potongan Cuti</h5>
-        <div class="row mt-4">
-          <div class="col-sm-9 mb-3">
-            <input
-              type="number"
-              class="form-control input-cuti"
-              value="<?= $potonganCuti; ?>"
-            />
-            <small>per hari</small>
-          </div>
-          <div class="col-sm-3">
-            <button class="btn btn-primary w-100" id="action-cuti">
               Set
             </button>
           </div>
@@ -149,7 +131,19 @@
         <!-- end chart js -->
       </div>
     </div>
-    
+    <script>
+
+const hoverable = document.querySelectorAll(".hoverable");
+
+for (let i = 0; i < hoverable.length; i++) {
+  hoverable[i].addEventListener("mouseenter", function () {
+    hoverable[i].classList.add("shadow");
+  });
+  hoverable[i].addEventListener("mouseleave", function () {
+    hoverable[i].classList.remove("shadow");
+  });
+}
+    </script>
     <script src="assets/js/finance.js"></script>
   </div>
     <!-- pimpinan section -->

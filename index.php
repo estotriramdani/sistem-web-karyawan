@@ -15,7 +15,6 @@
   foreach ($gaji as $g) {
     $harian = $g['harian'];
     $lembur = $g['lembur'];
-    $potonganCuti = $g['potonganCuti'];
   }
   
   if ($role == 1){
@@ -27,9 +26,6 @@
       echo "<script>alert('Silakan tentukan dahulu uang lembur')</script>";
     }
 
-    if ($potonganCuti == 0) {
-      echo "<script>alert('Silakan tentukan dahulu potongan uang cuti')</script>";
-    }
   }
   
 ?>
@@ -50,6 +46,8 @@
       include_once 'pages/user/pimpinan.php';
     } else if ($role == 3){
       include_once 'pages/user/karyawan.php';
+    } else if ($role == 2){
+      header('Location: ajuan-cuti.php');
     } 
   
   ?>

@@ -24,14 +24,3 @@ actionCuti.addEventListener("click", function () {
   );
   alert("Uang potongan cuti per hari berhasil diset");
 });
-
-const hoverable = document.querySelectorAll(".hoverable");
-
-for (let i = 0; i < hoverable.length; i++) {
-  hoverable[i].addEventListener("mouseenter", function () {
-    hoverable[i].classList.add("shadow");
-  });
-  hoverable[i].addEventListener("mouseleave", function () {
-    hoverable[i].classList.remove("shadow");
-  });
-}

@@ -38,9 +38,9 @@ while($d = mysqli_fetch_assoc($data)) {
       </form>
       <?php 
       if (mysqli_num_rows($result) === 1){
-        echo "<small>Anda <span class='text-success'>sudah presensi</span></small>";
+        echo "<small><span class='text-success'>Anda sudah mengisi presensi</span></small>";
       } else {
-        echo "<small>Anda <span class='text-danger'>belum presensi</span></small>";
+        echo "<small><span class='text-danger'>Anda belum mengisi presensi</span></small>";
       }
       
       ?>
@@ -88,23 +88,24 @@ while($d = mysqli_fetch_assoc($data)) {
       </form>
     </div>
     <div class="col-sm-6 bg-white shadow-sm p-4 rounded hoverable" style="transition: .3s;">
-      <h5>Ajukan Cuti Bulan Ini</h5> 
-      <small>Tanggal: <?= $tanggal; ?></small>
-      <form action="" method="get">
-        <div class="form-group">
-          <label for="tanggal">Tanggal Lembur</label>
-          <input type="text" readonly class="form-control" id="tanggal" name="tanggal" value="<?= $tanggal; ?>">
-          <small>hari ini</small>
-        </div>
-        <div class="form-group">
-          <label for="Durasi">Durasi Lembur</label>
-          <input type="number" readonly class="form-control" id="Durasi" name="Durasi" value="<?= $Durasi; ?>">
-          <small>dalam jam</small>
-        </div>
-        
-        <button type="submit" class="btn btn-primary">Lembur</button>
+      <h5>Data Lembur Anda</h5>
+      <small>Lima data lembur terakhir Anda</small>
+      <table class="table">
+        <tr>
+          <th>Tanggal</th>
+          <th>Durasi</th>
+        </th>
+        <?php 
+          $datalembur = mysqli_query($conn,"SELECT * FROM lembur WHERE email = '$email' LIMIT 5");
+          while($d = mysqli_fetch_array($datalembur)) {
+        ?>
+        <tr>
+          <td><?= $d['tanggal']; ?></td>
+          <td><?= $d['durasi']; ?> jam</td>
+        </tr>
+        <?php } ?>
 
-      </form>
+      </table>
     </div>
   </div>
 
@@ -124,3 +125,5 @@ while($d = mysqli_fetch_assoc($data)) {
     }
 </script>
 </div>
+<br>
+<br>

@@ -7,5 +7,7 @@ $id = $_GET['id'];
 $query = "UPDATE cuti SET status = 1 WHERE id = $id";
 
 mysqli_query($koneksi, $query);
+header('Location: ../../ajuan-cuti.php');
+
 
 ?>
